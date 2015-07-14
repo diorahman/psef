@@ -9,21 +9,21 @@ function removeEmptyElements (arr) {
 }
 
 function parse(stdout, cb) {
- var lines = stdout.toString();
- var arr = lines.split('\n');
- arr.pop();
- var headers = arr.shift().split(' ');
- headers = removeEmptyElements(headers);
- arr = arr.map(function(line){
-  var lineElements = line.split(' ');
-  lineElements = removeEmptyElements(lineElements);
-  var obj = {};
-  headers.forEach(function(key, index){
-    obj[key] = lineElements[index];
+  var lines = stdout.toString();
+  var arr = lines.split('\n');
+  arr.pop();
+  var headers = arr.shift().split(' ');
+  headers = removeEmptyElements(headers);
+  arr = arr.map(function(line){
+    var lineElements = line.split(' ');
+    lineElements = removeEmptyElements(lineElements);
+    var obj = {};
+    headers.forEach(function(key, index){
+      obj[key] = lineElements[index];
+    });
+    return obj;
   });
-  return obj;
- });
- cb(null, arr);
+  cb(null, arr);
 }
 
 module.exports = function(cb) {
