@@ -1,0 +1,23 @@
+{
+  "name": "psef",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-cover": "mocha --require should --require blanket -R html-cov > coverage.html",
+    "test": "mocha --require should"
+  },
+  "author": "Dhi Aurrahman <diorahman@rockybars.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "blanket": "^1.1.7",
+    "mocha": "^2.2.5",
+    "should": "^7.0.2"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [""],
+      "data-cover-never": ["node_modules", "test"]
+    } 
+  }
+}
